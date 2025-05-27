@@ -1,3 +1,6 @@
+
+<img src="/media/tigereyewide.jpg" alt="Known Tracks" title="banner" style="width: 100%; height: auto;">
+
 # locoEYE: Real-Time Rail Detection
 ### 🚧 Problem Statement
 
