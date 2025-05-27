@@ -39,7 +39,7 @@ The project also utilizes the [Roboflow](https://roboflow.com) pipeline to build
 </div>
 
 ## Generate Rail training set/validation set/test tet
-First, download cabview video herep[TBD]. 
+First, download cabview video here[TBD]. 
 
 This includes both scripts and manual procedures used to create the dataset from raw video input.<br>
 **Scripts**<br>
