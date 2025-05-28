@@ -42,11 +42,20 @@ The project also utilizes the [Roboflow](https://roboflow.com) pipeline to build
 First, download cabview video here[TBD]. 
 
 This includes both scripts and manual procedures used to create the dataset from raw video input.<br>
-**Scripts**<br>
-The following scripts are located in the tools/ folder:
-* locoEYE_extractframes.py<br>
-Extracts 1 frame per second from a cabview video using OpenCV.
+**Scripts**  
+The following scripts are located in the tools/ folder:  
+* locoEYE_extractframes.py  
+Extracts 1 frame per second from a cabview video using OpenCV.  
+* locoEYE_create_mask.py  
+Generates binary and instance masks from labeled images.  
+python .\locoEYE_create_mask.py --mode binary  
+create binary mask  
+python .\locoEYE_create_mask.py --mode instance  
+Creates train.txt and val.txt files containing image paths, binary mask paths, and instance mask paths.  
+python .\locoEYE_create_txt.py  
 
-**Manual Steps**<br>
-1. Labeling:
-Use different colors to label individual rail segments for instance-level differentiation.
+**Manual Steps**  
+1. Labeling:  
+Use an image editor (e.g., Photoshop, GIMP, or CVAT) to assign unique colors to each individual rail segment. This is required for generating accurate instance-level masks.  
+2. Clean up binary mask files:  
+Manually review and clean the generated binary mask files (cleaned_*.jpg) to remove noise or misclassified areas before training.  
