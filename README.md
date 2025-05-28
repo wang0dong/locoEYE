@@ -58,4 +58,7 @@ python .\locoEYE_create_txt.py
 1. Labeling:  
 Use an image editor (e.g., Photoshop, GIMP, or CVAT) to assign unique colors to each individual rail segment. This is required for generating accurate instance-level masks.  
 2. Clean up binary mask files:  
-Manually review and clean the generated binary mask files (cleaned_*.jpg) to remove noise or misclassified areas before training.  
+Manually review and clean the generated binary mask files (cleaned_*.jpg) to remove noise or misclassified areas before training.
+
+
+python train.py --dataset ./Tracks --save ./Tracks/output --height 256 --width 512 --bs 8 --lr 0.001 --epochs 20 --loss_type FocalLoss --model_type ENet   
