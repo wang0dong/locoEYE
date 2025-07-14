@@ -60,5 +60,12 @@ Use an image editor (e.g., Photoshop, GIMP, or CVAT) to assign unique colors to 
 2. Clean up binary mask files:  
 Manually review and clean the generated binary mask files (cleaned_*.jpg) to remove noise or misclassified areas before training.
 
+## 
+**Train and test scripts**
+python locoEYE_train.py --dataset ./Tracks --save ./Tracks/output --height 256 --width 512 --bs 8 --lr 0.001 --epochs 20 --loss_type FocalLoss --model_type ENet
 
-python train.py --dataset ./Tracks --save ./Tracks/output --height 256 --width 512 --bs 8 --lr 0.001 --epochs 20 --loss_type FocalLoss --model_type ENet   
+python locoEYE_test.py  --height 256 --width 512 --model .\checkpoints\best_model.pth
+
+<img src="/media/0266_input.jpg" alt="0266_input" title="input" style="width: 30%; height: auto;">
+<img src="/media/0266_binary_output.jpg" alt="0266_binary_output" title="binary_output" style="width: 30%; height: auto;">
+<img src="/media/0266_instance_output.jpg" alt="0266_instance_output" title="instance_output" style="width: 30%; height: auto;">
