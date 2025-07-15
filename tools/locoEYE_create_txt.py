@@ -46,7 +46,7 @@ def write_list(file_list, txt_file):
             binary_mask_path = os.path.join(bmasks_dir, binary_mask_name).replace('\\', '/')
             instance_mask_path = os.path.join(imasks_dir, instance_mask_name).replace('\\', '/')
 
-            f.write(f"{img_path} {binary_mask_path} {instance_mask_path}\n")
+            f.write(f"{img_path},{binary_mask_path},{instance_mask_path}\n")
 
 def verify_dataset_file(txt_file):
     missing_images = []
@@ -57,12 +57,16 @@ def verify_dataset_file(txt_file):
         lines = f.readlines()
 
     for line in lines:
-        parts = line.strip().split()
+        parts = line.strip('"').split(",")
+        
         if len(parts) != 3:
             print(f"⚠️ Skipping malformed line: {line.strip()}")
             continue
 
         img_path, bmask_path, imask_path = parts
+        img_path = img_path.strip().strip('"')
+        bmask_path = bmask_path.strip().strip('"')
+        imask_path = imask_path.strip().strip('"')
 
         if not os.path.exists(img_path):
             missing_images.append(img_path)

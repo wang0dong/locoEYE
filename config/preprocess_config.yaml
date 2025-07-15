@@ -1,0 +1,35 @@
+# folders
+video_path: 'datasets/tracks/cabview.mp4'
+clips_path: 'datasets/tracks/clips'
+manual_mask: 'datasets/tracks/manual_mask'
+binary_mask: 'datasets/tracks/binary_mask' 
+instance_mask: 'datasets/tracks/instance_mask'
+bmask_dir_cleanup: 'datasets/tracks/binary_masks_cleanup'
+save_path: 'checkpoints'
+train_txt: 'datasets/tracks/train.txt'
+val_txt: 'datasets/tracks/val.txt'
+
+# height, width
+height: 256
+width: 512
+
+# training parameters
+bs: 8
+lr: 0.001
+epochs: 20 
+loss_type: 'FocalLoss'
+model_type: 'ENet'
+
+train_split: 0.7
+val_split: 0.2
+test_split: 0.1
+
+# using those specific RGB values to label different rail segments in images
+rail_colors:
+  - [255, 255, 255]  # White
+  - [255, 0, 0]      # Red
+  - [0, 255, 0]      # Green
+  - [0, 0, 255]      # Blue
+  - [255, 255, 0]    # Yellow
+  - [0, 255, 255]    # Cyan
+
