@@ -66,6 +66,6 @@ python locoEYE_train.py --dataset ./Tracks --save ./Tracks/output --height 256 -
 
 python locoEYE_test.py  --height 256 --width 512 --model .\checkpoints\best_model.pth
 
-<img src="/media/0266_input.jpg" alt="0266_input" title="input" style="width: 30%; height: auto;">
-<img src="/media/0266_binary_output.jpg" alt="0266_binary_output" title="binary_output" style="width: 30%; height: auto;">
-<img src="/media/0266_instance_output.jpg" alt="0266_instance_output" title="instance_output" style="width: 30%; height: auto;">
+<img src="/media/0300_0333_inputs.gif" alt="input" title="input" title="input image" style="width: 100%; height: auto;">
+<img src="/media/0300_0333_binary_outputs.gif" alt="binary_output" title="binary_output image" style="width: 100%; height: auto;">
+<img src="/media/0300_0333_instance_outputs.gif" alt="instance_output" title="instance_output image" style="width: 100%; height: auto;">
