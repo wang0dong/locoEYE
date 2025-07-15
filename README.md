@@ -61,11 +61,39 @@ Use an image editor (e.g., Photoshop, GIMP, or CVAT) to assign unique colors to 
 Manually review and clean the generated binary mask files (cleaned_*.jpg) to remove noise or misclassified areas before training.
 
 ## 
-**Train and test scripts**
+**locoEYE_train.py**
+This script is used to train the railway track detection model on your labeled dataset. It supports configurable options such as batch size, image resolution, number of epochs, optimizer settings, and model architecture.
+
 python locoEYE_train.py --dataset ./Tracks --save ./Tracks/output --height 256 --width 512 --bs 8 --lr 0.001 --epochs 20 --loss_type FocalLoss --model_type ENet
+
+Key Features:
+* Supports training with FocalLoss or CrossEntropy.
+* Logs training/validation loss per epoch.
+* Saves the best model checkpoint automatically to the specified --save path.
+
+**locoEYE_test.py**
+This script is used to test a trained model on new data or validation sets. It outputs predicted binary and instance masks for each input image and saves the results to disk.
 
 python locoEYE_test.py  --height 256 --width 512 --model .\checkpoints\best_model.pth
 
+Key Features:
+* Loads the trained .pth model and applies it to the dataset in inference mode.
+* Outputs:
+  Input image
+  Binary segmentation prediction
+  Instance segmentation prediction
+*Useful for qualitative visualization of model performance.
+
+**locoEYE_eval.py**
+
+python locoEYE_eval.py
+
+Key Features:
+* Compares predicted masks with ground truth binary and instance masks from validation set.
+* Prints and logs evaluation metrics.
+* Helps in comparing different models or hyperparameter settings.
+
+The testing result 
 <img src="/media/0300_0333_inputs.gif" alt="input" title="input" title="input image" style="width: 100%; height: auto;">
 <img src="/media/0300_0333_binary_outputs.gif" alt="binary_output" title="binary_output image" style="width: 100%; height: auto;">
 <img src="/media/0300_0333_instance_outputs.gif" alt="instance_output" title="instance_output image" style="width: 100%; height: auto;">
